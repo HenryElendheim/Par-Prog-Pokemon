@@ -8,6 +8,8 @@ namespace Par_Prog_Pokemon
     {
         List<Pokemon> pokemons = new List<Pokemon>();
 
+        List<Pokemon> starterPokemons = new List<Pokemon>();
+
         public string Name { get; set; }
         public int Level { get; set; }
         public string Type { get; set; }
@@ -24,6 +26,11 @@ namespace Par_Prog_Pokemon
             return pokemons;
         }
 
+        public List<Pokemon> GetStarterPokemons()
+        {
+            return starterPokemons;
+        }
+
         public void AddPokemonHardcoded()
         {
             pokemons.Add(new Pokemon("Blastoise", 5, "Water"));
@@ -33,10 +40,10 @@ namespace Par_Prog_Pokemon
 
        public void StarterPokemon()
         {
-            pokemons.Add(new Pokemon("Pikachu", 5, "Electric"));
-            pokemons.Add(new Pokemon("Charmander", 5, "Fire"));
-            pokemons.Add(new Pokemon("Squirtle", 5, "Water"));
-            pokemons.Add(new Pokemon("Bulbasaur", 5, "Grass"));
+            starterPokemons.Add(new Pokemon("Pikachu", 5, "Electric"));
+            starterPokemons.Add(new Pokemon("Charmander", 5, "Fire"));
+            starterPokemons.Add(new Pokemon("Squirtle", 5, "Water"));
+            starterPokemons.Add(new Pokemon("Bulbasaur", 5, "Grass"));
         }
 
         public void ShowPokemon()
@@ -49,23 +56,23 @@ namespace Par_Prog_Pokemon
 
         public void ShowStarter()
         {
-            foreach (var pokemon in pokemons)
+            foreach (var pokemon in starterPokemons)
             {
                 Console.WriteLine("Name: " + pokemon.Name + "\n" + "Level: " + pokemon.Level + "\n" + "Type: " + pokemon.Type + "\n\n");
             }
         }
 
-        public Pokemon SearchPoke()
+        public Pokemon SearchStarter()
         {
             Console.WriteLine("Which pokemon do you want?\n");
             Console.Write("> ");
             string input = Console.ReadLine();
 
-            for (int i = 0; i < pokemons.Count; i++)
+            for (int i = 0; i < starterPokemons.Count; i++)
             {
-                if (pokemons[i].Name.ToLower() == input.ToLower())
+                if (starterPokemons[i].Name.ToLower() == input.ToLower())
                 {
-                    return pokemons[i];
+                    return starterPokemons[i];
                 }
             }
 
@@ -75,7 +82,7 @@ namespace Par_Prog_Pokemon
 
         public void PickPoke(Trainer trainer = null)
         {
-            Pokemon found = SearchPoke();
+            Pokemon found = SearchStarter();
 
             if (found == null)
             {
