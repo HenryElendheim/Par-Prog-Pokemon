@@ -10,10 +10,36 @@ namespace Par_Prog_Pokemon
 
         public List<Pokemon> pokemen = new List<Pokemon>();
 
-        public Trainer(string name = "")
+        public Inventory inv { get; set; } = new Inventory();
+
+
+        public string[] invArray;
+
+        public void OpenInv()
+        {
+            
+        }
+
+        public void ShowPokemon()
+        {
+            if(pokemen.Count == 0)
+            {
+                Console.WriteLine("No pokemon's here");
+                return;
+            }
+
+            foreach (var poke in pokemen)
+            {
+                Console.WriteLine($"Pokemon: {poke.Name} | {poke.Level} | {poke.Type}");
+            }
+        }
+
+        public Trainer(string name = null)
         {
             Name = name;
             new Pokemon();
+
+
         }
 
         public void SetName()

@@ -6,5 +6,6 @@ namespace Par_Prog_Pokemon
 {
     internal class Inventory
     {
+        
     }
 }

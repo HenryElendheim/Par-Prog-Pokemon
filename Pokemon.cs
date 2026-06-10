@@ -19,7 +19,19 @@ namespace Par_Prog_Pokemon
             Type = type;
         }
 
+        public List<Pokemon> GetPokemons()
+        {
+            return pokemons;
+        }
+
         public void AddPokemonHardcoded()
+        {
+            pokemons.Add(new Pokemon("Blastoise", 5, "Water"));
+            pokemons.Add(new Pokemon("Tommelgeir", 5, "Ground"));
+            pokemons.Add(new Pokemon("Geodude", 5, "Ground"));
+        }
+
+       public void StarterPokemon()
         {
             pokemons.Add(new Pokemon("Pikachu", 5, "Electric"));
             pokemons.Add(new Pokemon("Charmander", 5, "Fire"));
@@ -28,6 +40,14 @@ namespace Par_Prog_Pokemon
         }
 
         public void ShowPokemon()
+        {
+            foreach (var pokemon in pokemons)
+            {
+                Console.WriteLine("Name: " + pokemon.Name + "\n" + "Level: " + pokemon.Level + "\n" + "Type: " + pokemon.Type + "\n\n");
+            }
+        }
+
+        public void ShowStarter()
         {
             foreach (var pokemon in pokemons)
             {
